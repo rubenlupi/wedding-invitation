@@ -13,45 +13,76 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="background-wrapper">
-      <img
-        src="images/Cover.png"
-        alt="Wedding Background"
-        class="background-image"
-      />
-      <div class="overlay"></div>
+    <!-- Pantalla inicial del sobre -->
+    <div class="envelope-screen" id="envelopeScreen">
+      <div class="envelope-container">
+        <img
+          src="images/envelope_transparent.png"
+          alt="Sobre"
+          class="envelope-image"
+        />
+        <p class="tap-instruction">Haz clic para abrir</p>
+      </div>
     </div>
 
-    <div class="container">
-      <div class="names">
-        <h1>Tánit y Rubén</h1>
+    <!-- Invitación completa -->
+    <div class="invitation-wrapper hidden" id="invitationWrapper">
+      <div class="background-wrapper">
+        <img
+          src="images/Cover.png"
+          alt="Wedding Background"
+          class="background-image"
+        />
+        <div class="overlay"></div>
       </div>
 
-      <div class="subtitle">
-        <p>Una vida juntos, un paso más para celebrar.</p>
-      </div>
-
-      <div class="details">
-        <div class="detail-item">
-          <h3>📅 Fecha</h3>
-          <p>Sábado, 15 de Mayo de 2026</p>
+      <div class="container">
+        <div class="names">
+          <h1>Tánit y Rubén</h1>
         </div>
 
-        <div class="detail-item">
-          <h3>🕐 Hora</h3>
-          <p>17:00 horas</p>
+        <div class="subtitle">
+          <p>Una vida juntos, un paso más para celebrar.</p>
         </div>
 
-        <div class="detail-item">
-          <h3>📍 Lugar</h3>
-          <p>Hacienda Los Jardines</p>
-          <p class="address">Calle de la Felicidad, 123</p>
-        </div>
-      </div>
+        <div class="details">
+          <div class="detail-item">
+            <h3>📅 Fecha</h3>
+            <p>Sábado, 27 de junio de 2026</p>
+          </div>
 
-      <div class="footer">
-        <p>Con amor,</p>
-        <p class="signature">Tánit & Rubén</p>
+          <div class="detail-item">
+            <h3>🕐 Hora</h3>
+            <p>18:00 horas</p>
+          </div>
+
+          <div class="detail-item">
+            <h3>📍 Lugar</h3>
+            <p>
+              <a
+                href="https://maps.app.goo.gl/npiBcEZRFP5jZFu29"
+                target="_blank"
+                class="location-link"
+                >Ver ubicación en el mapa</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="calendar-section">
+          <a
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+T%C3%A1nit+y+Rub%C3%A9n&dates=20260627T180000/20260627T230000&details=Una+vida+juntos%2C+un+paso+m%C3%A1s+para+celebrar&location=https://maps.app.goo.gl/npiBcEZRFP5jZFu29"
+            target="_blank"
+            class="calendar-btn"
+          >
+            📅 Añadir a mi calendario
+          </a>
+        </div>
+
+        <div class="footer">
+          <p>Con amor,</p>
+          <p class="signature">Tánit & Rubén</p>
+        </div>
       </div>
     </div>
 

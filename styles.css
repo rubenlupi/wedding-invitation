@@ -13,6 +13,91 @@ body {
   overflow-x: hidden;
 }
 
+/* Pantalla inicial del sobre */
+.envelope-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8f3ed 0%, #e8dfd5 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.envelope-screen.opening {
+  opacity: 0;
+  transform: scale(1.2);
+}
+
+.envelope-container {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.envelope-container:hover {
+  transform: scale(1.05);
+}
+
+.envelope-image {
+  max-width: 1000px;
+  width: 95%;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+  animation: floatEnvelope 3s ease-in-out infinite;
+}
+
+.tap-instruction {
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
+  color: #8b7355;
+  margin-top: 2rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes floatEnvelope {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Wrapper de invitación */
+.invitation-wrapper {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.invitation-wrapper.show {
+  opacity: 1;
+}
+
+.invitation-wrapper.hidden {
+  display: none;
+}
+
 .background-wrapper {
   position: fixed;
   top: 0;
@@ -113,6 +198,52 @@ body {
   color: #888;
 }
 
+.location-link {
+  font-family: "Lato", sans-serif;
+  color: #6b5d4f;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  display: inline-block;
+  border: 2px solid #6b5d4f;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.location-link:hover {
+  background: #6b5d4f;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(107, 93, 79, 0.3);
+}
+
+.calendar-section {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.calendar-btn {
+  font-family: "Lato", sans-serif;
+  background: linear-gradient(135deg, #d4a574 0%, #b8935c 100%);
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 15px rgba(180, 147, 92, 0.3);
+  font-weight: 600;
+}
+
+.calendar-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(180, 147, 92, 0.4);
+}
+
 .footer {
   margin-top: 3rem;
   padding: 2rem;
@@ -147,6 +278,16 @@ body {
 }
 
 @media (max-width: 768px) {
+  .envelope-image {
+    max-width: 100%;
+    width: 85%;
+  }
+
+  .tap-instruction {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+
   .names h1 {
     font-size: 3rem;
   }
