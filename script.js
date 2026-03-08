@@ -21,6 +21,17 @@ function typewriterEffect(element, text, speed = 80) {
 
   function type() {
     if (i < text.length) {
+      // Si encontramos una etiqueta HTML, insertarla completa
+      if (text.charAt(i) === '<') {
+        const closingBracket = text.indexOf('>', i);
+        if (closingBracket !== -1) {
+          element.innerHTML += text.substring(i, closingBracket + 1);
+          i = closingBracket + 1;
+          setTimeout(type, speed);
+          return;
+        }
+      }
+
       element.innerHTML += text.charAt(i);
       i++;
       setTimeout(type, speed);
@@ -28,6 +39,32 @@ function typewriterEffect(element, text, speed = 80) {
   }
 
   type();
+}
+
+// Función para crear estrellas parpadeantes
+function createStars() {
+  const starsContainer = document.getElementById('starsContainer');
+
+  if (!starsContainer) {
+    console.error('Stars container not found!');
+    return;
+  }
+
+  console.log('Creating stars...');
+  const starCount = 100;
+
+  for (let i = 0; i < starCount; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+
+    starsContainer.appendChild(star);
+  }
+
+  console.log(`Created ${starCount} stars`);
 }
 
 // Función para crear efecto de confetti
@@ -104,6 +141,8 @@ envelopeScreen.addEventListener('click', () => {
         // Pequeño delay para que el display none tome efecto antes del fade in
         setTimeout(() => {
           invitationWrapper.classList.add('show');
+          // Crear estrellas parpadeantes
+          createStars();
         }, 50);
       }, 1000);
     }, 6500);
