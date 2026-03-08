@@ -410,13 +410,13 @@ body {
   }
 
   .thank-you-message h2 {
-    font-size: 2rem;
+    font-size: 2.8rem;
     padding: 0 1rem;
-    min-height: 2.5rem;
+    min-height: 3rem;
   }
 
   .cursor {
-    height: 2rem;
+    height: 2.8rem;
   }
 
   .thank-you-background {
