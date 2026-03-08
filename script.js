@@ -1,30 +1,14 @@
 // Wedding Invitation JavaScript
 console.log('Wedding Invitation loaded');
 
-// Función para crear sonido de apertura de sobre
+// Función para reproducir sonido de apertura de sobre
 function playOpenSound() {
   try {
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-
-    // Crear un sonido suave de "papel"
-    const oscillator = audioContext.createOscillator();
-    const gainNode = audioContext.createGain();
-
-    oscillator.connect(gainNode);
-    gainNode.connect(audioContext.destination);
-
-    // Configurar el sonido
-    oscillator.type = 'sine';
-    oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.3);
-
-    // Configurar volumen
-    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
-
-    // Reproducir
-    oscillator.start(audioContext.currentTime);
-    oscillator.stop(audioContext.currentTime + 0.4);
+    const audio = new Audio('sounds/envelope-open.mp3');
+    audio.volume = 0.5;
+    audio.play().catch(error => {
+      console.log('Audio playback failed:', error);
+    });
   } catch (error) {
     console.log('Audio not supported:', error);
   }
