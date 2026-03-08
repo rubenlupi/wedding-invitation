@@ -13,7 +13,14 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="floral-top">🌿🌸🌿</div>
+    <div class="background-wrapper">
+      <img
+        src="images/Cover.png"
+        alt="Wedding Background"
+        class="background-image"
+      />
+      <div class="overlay"></div>
+    </div>
 
     <div class="container">
       <div class="names">
@@ -23,12 +30,6 @@
       <div class="subtitle">
         <p>Una vida juntos, un paso más para celebrar.</p>
       </div>
-
-      <div class="couple-illustration">
-        <div class="couple">💑</div>
-      </div>
-
-      <div class="floral-bottom">🌿🍃🌿</div>
 
       <div class="details">
         <div class="detail-item">
@@ -45,44 +46,6 @@
           <h3>📍 Lugar</h3>
           <p>Hacienda Los Jardines</p>
           <p class="address">Calle de la Felicidad, 123</p>
-        </div>
-      </div>
-
-      <div class="rsvp-section">
-        <button id="rsvpBtn" class="rsvp-btn">Confirmar Asistencia</button>
-
-        <div id="rsvpForm" class="rsvp-form hidden">
-          <h3>Por favor confirma tu asistencia</h3>
-          <input type="text" id="guestName" placeholder="Tu nombre" required />
-          <div class="radio-group">
-            <label>
-              <input type="radio" name="attending" value="yes" checked />
-              <span>Asistiré con gusto ✓</span>
-            </label>
-            <label>
-              <input type="radio" name="attending" value="no" />
-              <span>No podré asistir</span>
-            </label>
-          </div>
-          <input
-            type="number"
-            id="guestCount"
-            placeholder="Número de acompañantes"
-            min="0"
-            max="5"
-          />
-          <textarea
-            id="message"
-            placeholder="Mensaje para los novios (opcional)"
-            rows="3"
-          ></textarea>
-          <button id="submitBtn" class="submit-btn">Enviar Confirmación</button>
-          <button id="cancelBtn" class="cancel-btn">Cancelar</button>
-        </div>
-
-        <div id="thankYou" class="thank-you hidden">
-          <h3>¡Gracias por confirmar!</h3>
-          <p>Nos vemos en la celebración 💕</p>
         </div>
       </div>
 
