@@ -30,13 +30,46 @@ function playOpenSound() {
   }
 }
 
+// Función para crear efecto de confetti
+function createConfetti() {
+  const colors = ['#d4a574', '#b8935c', '#e8dfd5', '#f8f3ed', '#8b7355'];
+  const confettiCount = 80;
+
+  for (let i = 0; i < confettiCount; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.left = Math.random() * 100 + '%';
+    confetti.style.top = Math.random() * 100 + '%';
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.animationDelay = Math.random() * 0.3 + 's';
+    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+    document.body.appendChild(confetti);
+
+    // Eliminar el confetti después de la animación
+    setTimeout(() => {
+      confetti.remove();
+    }, 3000);
+  }
+}
+
 // Manejo de apertura del sobre
 const envelopeScreen = document.getElementById('envelopeScreen');
+const envelopeContainer = document.querySelector('.envelope-container');
 const invitationWrapper = document.getElementById('invitationWrapper');
 
 envelopeScreen.addEventListener('click', () => {
   // Reproducir sonido
   playOpenSound();
+
+  // Animar el contenedor del sobre
+  envelopeContainer.classList.add('opening');
+
+  // Crear efecto de confetti
+  setTimeout(() => {
+    createConfetti();
+  }, 400);
 
   // Animar salida del sobre
   envelopeScreen.classList.add('opening');
@@ -50,7 +83,7 @@ envelopeScreen.addEventListener('click', () => {
     setTimeout(() => {
       invitationWrapper.classList.add('show');
     }, 50);
-  }, 800);
+  }, 1200);
 });
 
 // Animación de scroll suave
