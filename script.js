@@ -30,6 +30,22 @@ function playOpenSound() {
   }
 }
 
+// Función para efecto de máquina de escribir
+function typewriterEffect(element, text, speed = 80) {
+  let i = 0;
+  element.textContent = '';
+
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+
+  type();
+}
+
 // Función para crear efecto de confetti
 function createConfetti() {
   const colors = ['#d4a574', '#b8935c', '#e8dfd5', '#f8f3ed', '#8b7355'];
@@ -57,6 +73,7 @@ function createConfetti() {
 // Manejo de apertura del sobre
 const envelopeScreen = document.getElementById('envelopeScreen');
 const envelopeContainer = document.querySelector('.envelope-container');
+const thankYouScreen = document.getElementById('thankYouScreen');
 const invitationWrapper = document.getElementById('invitationWrapper');
 
 envelopeScreen.addEventListener('click', () => {
@@ -74,15 +91,37 @@ envelopeScreen.addEventListener('click', () => {
   // Animar salida del sobre
   envelopeScreen.classList.add('opening');
 
-  // Después de la animación, ocultar el sobre y mostrar la invitación
+  // Después de la animación del sobre, mostrar pantalla de agradecimiento
   setTimeout(() => {
     envelopeScreen.style.display = 'none';
-    invitationWrapper.classList.remove('hidden');
+    thankYouScreen.classList.remove('hidden');
 
-    // Pequeño delay para que el display none tome efecto antes del fade in
+    // Pequeño delay para mostrar con fade in
     setTimeout(() => {
-      invitationWrapper.classList.add('show');
+      thankYouScreen.classList.add('show');
+
+      // Iniciar efecto de máquina de escribir
+      const typewriterElement = document.getElementById('typewriterText');
+      const text = 'Dos corazones latiendo al compás de uno';
+      setTimeout(() => {
+        typewriterEffect(typewriterElement, text, 80);
+      }, 500);
     }, 50);
+
+    // Después de 6.5 segundos, ocultar agradecimiento y mostrar invitación
+    setTimeout(() => {
+      thankYouScreen.classList.remove('show');
+
+      setTimeout(() => {
+        thankYouScreen.style.display = 'none';
+        invitationWrapper.classList.remove('hidden');
+
+        // Pequeño delay para que el display none tome efecto antes del fade in
+        setTimeout(() => {
+          invitationWrapper.classList.add('show');
+        }, 50);
+      }, 800);
+    }, 6500);
   }, 1200);
 });
 
