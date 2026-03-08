@@ -51,15 +51,21 @@ function createStars() {
   }
 
   console.log('Creating stars...');
-  const starCount = 100;
+  const starCount = 80;
+  const colors = ['#FFD700', '#FFA500', '#FF69B4', '#87CEEB', '#DDA0DD', '#F0E68C', '#FFB6C1'];
 
   for (let i = 0; i < starCount; i++) {
     const star = document.createElement('div');
     star.className = 'star';
     star.style.left = Math.random() * 100 + '%';
-    star.style.top = Math.random() * 100 + '%';
-    star.style.animationDelay = Math.random() * 3 + 's';
-    star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    star.style.top = '-10%';
+    star.style.animationDelay = Math.random() * 8 + 's';
+    star.style.animationDuration = (Math.random() * 4 + 6) + 's';
+
+    // Asignar color aleatorio
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    star.style.background = color;
+    star.style.boxShadow = `0 0 20px ${color}, 0 0 40px ${color}`;
 
     starsContainer.appendChild(star);
   }
