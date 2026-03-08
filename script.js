@@ -17,11 +17,11 @@ function playOpenSound() {
 // Función para efecto de máquina de escribir
 function typewriterEffect(element, text, speed = 80) {
   let i = 0;
-  element.textContent = '';
+  element.innerHTML = '';
 
   function type() {
     if (i < text.length) {
-      element.textContent += text.charAt(i);
+      element.innerHTML += text.charAt(i);
       i++;
       setTimeout(type, speed);
     }
@@ -86,7 +86,7 @@ envelopeScreen.addEventListener('click', () => {
 
       // Iniciar efecto de máquina de escribir
       const typewriterElement = document.getElementById('typewriterText');
-      const text = 'Dos corazones latiendo al compás de uno';
+      const text = 'Dos corazones<br>latiendo al compás de uno';
       setTimeout(() => {
         typewriterEffect(typewriterElement, text, 80);
       }, 500);
