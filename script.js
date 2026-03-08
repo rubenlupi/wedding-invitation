@@ -110,6 +110,7 @@ envelopeScreen.addEventListener('click', () => {
 
     // Después de 6.5 segundos, ocultar agradecimiento y mostrar invitación
     setTimeout(() => {
+      thankYouScreen.style.transition = 'opacity 1s ease-out';
       thankYouScreen.classList.remove('show');
 
       setTimeout(() => {
@@ -120,9 +121,9 @@ envelopeScreen.addEventListener('click', () => {
         setTimeout(() => {
           invitationWrapper.classList.add('show');
         }, 50);
-      }, 800);
+      }, 1000);
     }, 6500);
-  }, 1200);
+  }, 1000);
 });
 
 // Animación de scroll suave
