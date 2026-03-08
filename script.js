@@ -29,12 +29,12 @@ submitBtn.addEventListener('click', () => {
   const attending = document.querySelector('input[name="attending"]:checked').value;
   const guestCount = document.getElementById('guestCount').value;
   const message = document.getElementById('message').value;
-  
+
   if (!guestName.trim()) {
     alert('Por favor, ingresa tu nombre');
     return;
   }
-  
+
   // Aquí puedes agregar lógica para enviar los datos a un servidor
   console.log('RSVP Data:', {
     name: guestName,
@@ -42,7 +42,7 @@ submitBtn.addEventListener('click', () => {
     guestCount: guestCount,
     message: message
   });
-  
+
   // Mostrar mensaje de agradecimiento
   rsvpForm.classList.remove('show');
   setTimeout(() => {
